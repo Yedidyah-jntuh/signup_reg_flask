@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+  <h3>Registration Form</h3>
+  <form id="regForm">
+    <label>Username</label>
+    <input type="text" name="username" required><br><br>
+
+    <label>Password</label>
+    <input type="password" name="password" required><br><br>
+
+    <label>Gender</label>
+    <select name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select><br><br>
+
+    <label>DOB</label>
+    <input type="date" name="dob"><br><br>
+
+    <label>Mobile</label>
+    <input type="tel" name="mobile"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+  <h4>User List</h4>
+  <ul id="userList"></ul>
+
+  <script>
+    const regForm = document.getElementById("regForm");
+    const message = document.getElementById("message");
+    const userList = document.getElementById("userList");
+
+    regForm.addEventListener('submit',function(event){
+      event.preventDefault();
+
+      const username = document.createElement('li');
+      username.textContent = regForm.username.value;
+      userList.appendChild(username);
+
+      message.textContent = "User Successfully Created";
+
+      regForm.reset();
+    });
+  </script>
+</body>
+</html>
